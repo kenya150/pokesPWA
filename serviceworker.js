@@ -4,6 +4,8 @@ const CACHE_NAME = "pwa-cache-v5";
 const ARCHIVOS = [
     "./",
     "./index.html",
+    "/detalle.html",
+    "/js/detalle.js"
     "./manifest.json",
     "./serviceworker.js",
     "./css/style.css",

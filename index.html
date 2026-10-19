@@ -1,125 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#db4938">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
-    <title>Coffee PWA</title>
+
+    <title>Pokédex PWA</title>
 </head>
+
 <body>
     <header>
-        <h1 style="color: black;">Mi catálogo</h1>
-        <p style="color: black;">
-            Conoce nuestros servicios
-        </p>
-        <button id="btnInstalar" onclick="instalarApp()" style="display:none;">
-            Descargar aplicación
+        <h1>Mi Pokédex</h1>
+        <p>Descubre el mundo Pokémon</p>
+
+        <button id="btnInstalar"
+                onclick="instalarApp()"
+                style="display:none;">
+            Instalar aplicación
         </button>
     </header>
-    <main class="contenedor">
-        <div class="card" onclick="location.href='detalle.html?producto=americano'">
-            <img src="imagenes/icons/cafee.jpg" alt="Americano">
-            <div class="card-contenido">
-                <h2>Americano</h2>
-                <p>
-                    Descripción del primer servicio que ofrece
-                    nuestra aplicación.
-                </p>
-                <button onclick="mostrarInfo(this)">Ver más</button>
-                <div class="informacion-extra">
-            <p><strong>Precio:</strong> $45</p>
-            <p><strong>Tamaño:</strong> 350 ml</p>
-            <p><strong>Ingredientes:</strong> Café espresso y agua caliente.</p>
-            <p><strong>Disponible:</strong> Sí</p>
-        </div>
-            </div>
-        </div>
-        <div class="card" onclick="location.href='detalle.html?producto=americano'">
-            <img src="imagenes/cafe2.jpg" alt="Clásico">
-            <div class="card-contenido">
-                <h2>Clásico</h2>
-                <p>
-                    Información sobre este servicio y sus
-                    principales características.
-                </p>
-                <button onclick="mostrarInfo(this)">Ver más</button>
-                <div class="informacion-extra">
-                <p><strong>Precio:</strong> $50</p>
-                <p><strong>Tamaño:</strong> 400 ml</p>
-                <p><strong>Ingredientes:</strong> Café, leche y azúcar.</p>
-                <p><strong>Disponible:</strong> Sí</p>
-            </div>
-            </div>
-        </div>
-        <div class="card" onclick="location.href='detalle.html?producto=americano'">
-            <img src="imagenes/cafe3.jpg" alt="Café 3">
-            <div class="card-contenido">
-                <h2>capuchino</h2>
-                <p>
-                    Bienvenido a nuestra cafetería.
-                </p>
-                <button onclick="mostrarInfo(this)">Ver más</button>
-                <div class="informacion-extra">
-                    <p><strong>Precio:</strong> $55</p>
-                    <p><strong>Tamaño:</strong> 350 ml</p>
-                    <p><strong>Ingredientes:</strong> Café, leche y azúcar.</p>
-                    <p><strong>Disponible:</strong> Sí</p>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="location.href='detalle.html?producto=americano'">
-            <img src="imagenes/cafe4.jpg" alt="Café 4">
-            <div class="card-contenido">
-                <h2>Latte</h2>
-                <p>
-                    Una opción más disponible dentro
-                    de nuestra plataforma.
-                </p>
-                <button onclick="mostrarInfo(this)">Ver más</button>
-                <div class="informacion-extra">
-                    <p><strong>Precio:</strong> $60</p>
-                    <p><strong>Tamaño:</strong> 400 ml</p>
-                    <p><strong>Ingredientes:</strong> Café, leche y azúcar.</p>
-                    <p><strong>Disponible:</strong> Sí</p>
-            </div>
-        </div>
-        <div class="card" onclick="location.href='detalle.html?producto=americano'">
-            <img src="imagenes/cafe5.jpg" alt="Café 5">
-            <div class="card-contenido">
-                <h2>Moka</h2>
-                <p>
-                    Información adicional de nuestro catálogo.
-                </p>
-                <button onclick="mostrarInfo(this)">Ver más</button>
-                <div class="informacion-extra">
-                    <p><strong>Precio:</strong> $65</p>
-                    <p><strong>Tamaño:</strong> 300 ml</p>
-                    <p><strong>Ingredientes:</strong> Café, leche y azúcar.</p>
-                    <p><strong>Disponible:</strong> Sí</p>
-                </div>
-            </div>
-        </div>
-        <div class="card" onclick="location.href='detalle.html?producto=americano'">
-            <img src="imagenes/cafe6.jpg" alt="Café 6">
-            <div class="card-contenido">
-                <h2>Cafe de Vainilla</h2>
-                <p>
-                    Descubre más información sobre este servicio.
-                </p>
-                <button onclick="mostrarInfo(this)">Ver más</button>
-                <div class="informacion-extra">
-                    <p><strong>Precio:</strong> $70</p>
-                    <p><strong>Tamaño:</strong> 350 ml</p>
-                    <p><strong>Ingredientes:</strong> Café, leche y azúcar.</p>
-                    <p><strong>Disponible:</strong> Sí</p>
-                </div>
-            </div>
-        </div>
+
+    <main>
+        <section id="catalogo" class="contenedor">
+            <p id="mensaje">Cargando Pokémon...</p>
+        </section>
     </main>
+
     <script src="js/app.js"></script>
-
 </body>
-
 </html>

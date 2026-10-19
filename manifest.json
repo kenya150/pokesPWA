@@ -1,8 +1,8 @@
 {
 "id": "./",
-"name": "Coffee PWA",
-"short_name": "Coffee",
-"description": "Aplicación web progresiva de cafetería",
+"name": "POKEMONS PWA",
+"short_name": "POKES",
+"description": "Aplicación web progresiva de pokemones",
 "start_url": "./",
 "scope": "./",
 "display": "standalone",
