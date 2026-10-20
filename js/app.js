@@ -1,20 +1,24 @@
 
 let deferredPrompt = null;
 
+// Botón para instalar la Pokédex
+const botonInstalar = document.getElementById("btnInstalar");
+
 // Detectar si la PWA puede instalarse
 window.addEventListener("beforeinstallprompt", event => {
     event.preventDefault();
+
     deferredPrompt = event;
 
-    const boton = document.getElementById("btnInstalar");
-
-    if (boton) {
-        boton.style.display = "block";
+    if (botonInstalar) {
+        botonInstalar.style.display = "block";
     }
+
+    console.log("La Pokédex está disponible para instalar");
 });
 
 // Instalar PWA
-function instalarApp() {
+async function instalarApp() {
     if (!deferredPrompt) {
         alert("La aplicación todavía no está disponible para instalar.");
         return;
@@ -22,11 +26,27 @@ function instalarApp() {
 
     deferredPrompt.prompt();
 
-    deferredPrompt.userChoice.then(resultado => {
-        console.log("Resultado:", resultado.outcome);
-        deferredPrompt = null;
-    });
+    const resultado = await deferredPrompt.userChoice;
+
+    console.log("Resultado:", resultado.outcome);
+
+    deferredPrompt = null;
+
+    if (botonInstalar) {
+        botonInstalar.style.display = "none";
+    }
 }
+
+// Detectar cuando la PWA se instala
+window.addEventListener("appinstalled", () => {
+    console.log("La Pokédex se instaló correctamente");
+
+    deferredPrompt = null;
+
+    if (botonInstalar) {
+        botonInstalar.style.display = "none";
+    }
+});
 
 // Registrar Service Worker
 if ("serviceWorker" in navigator) {
@@ -61,14 +81,22 @@ async function cargarPokemones() {
 
         for (const pokemon of datos.results) {
             const respuestaPokemon = await fetch(pokemon.url);
+
+            if (!respuestaPokemon.ok) {
+                continue;
+            }
+
             const detalle = await respuestaPokemon.json();
 
             const tarjeta = document.createElement("article");
             tarjeta.className = "card";
 
             const imagen = document.createElement("img");
-            imagen.src = detalle.sprites.other["official-artwork"].front_default
+
+            imagen.src =
+                detalle.sprites.other["official-artwork"].front_default
                 || detalle.sprites.front_default;
+
             imagen.alt = detalle.name;
             imagen.loading = "lazy";
 
@@ -76,8 +104,9 @@ async function cargarPokemones() {
             nombre.textContent = detalle.name.toUpperCase();
 
             const numero = document.createElement("p");
-            numero.textContent = "N.º " +
-                String(detalle.id).padStart(3, "0");
+
+            numero.textContent =
+                "N.º " + String(detalle.id).padStart(3, "0");
 
             const boton = document.createElement("button");
             boton.textContent = "Ver más";
@@ -92,9 +121,11 @@ async function cargarPokemones() {
 
     } catch (error) {
         console.error(error);
+
         mensaje.textContent =
             "No se pudieron cargar los Pokémon. Revisa tu conexión.";
     }
 }
 
+// Iniciar catálogo
 cargarPokemones();

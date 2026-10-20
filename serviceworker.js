@@ -5,7 +5,7 @@ const ARCHIVOS = [
     "./",
     "./index.html",
     "/detalle.html",
-    "/js/detalle.js"
+    "/js/detalle.js",
     "./manifest.json",
     "./serviceworker.js",
     "./css/style.css",
@@ -22,14 +22,6 @@ const ARCHIVOS = [
     "./imagenes/icons/gato7.png",
     "./imagenes/icons/gato8.png",
 
-    "./imagenes/cafe1.jpg",
-    "./imagenes/cafe2.jpg",
-    "./imagenes/cafe3.jpg",
-    "./imagenes/cafe4.jpg",
-    "./imagenes/cafe5.jpg",
-    "./imagenes/cafe6.jpg",
-    "./imagenes/cafe7.jpg",
-    "./imagenes/cafe8.jpg"
 ];
 
 
